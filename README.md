@@ -19,22 +19,9 @@ VILA is a family of open VLMs designed to optimize both efficiency and accuracy 
 2.  Install the necessary Python packages in the environment.
 
     ```bash
-    ./environment_setup.sh vila
+    ./environment_setup.sh
     ```
 
-3.  (Optional) If you are an NVIDIA employee with a wandb account, install
-    onelogger and enable it by setting `training_args.use_one_logger` to `True`
-    in `llava/train/args.py`.
-
-    ```bash
-    pip install --index-url=https://sc-hw-artf.nvidia.com/artifactory/api/pypi/hwinf-mlwfo-pypi/simple --upgrade one-logger-utils
-    ```
-
-4.  Activate a conda environment.
-
-    ```bash
-    conda activate vila
-    ```
 
 ## Inference
 

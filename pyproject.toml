@@ -57,6 +57,8 @@ ensure_newline_before_comments = true
 line_length = 120
 
 [tool.setuptools.packages.find]
+where = ["."]
+include = ["llava"]
 exclude = ["assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
 
 [tool.wheel]

@@ -102,21 +102,23 @@ def extract_media(
             if isinstance(part, str):
                 for token in MEDIA_TOKENS.values():
                     if token in part:
-                        logger.warning(f"Media token '{token}' found in text: '{part}'. Removed.")
-                        part = part.replace(token, "").strip()
+                        # logger.warning(f"Media token '{token}' found in text: '{part}'. Removed.")
+                        # part = part.replace(token, "").strip()
+                        part = part.strip()
+                        
                 text += part
             elif isinstance(part, (Image, PIL.Image.Image)):
                 if draft:
                     media["image"].append(part)
                 else:
                     media["image"].append(_extract_image(part))
-                text += MEDIA_TOKENS["image"]
+                # text += MEDIA_TOKENS["image"]
             elif isinstance(part, Video):
                 if draft:
-                    media["image"].append(part)
+                    media["video"].append(part)
                 else:
-                    media["image"].extend(_extract_video(part, config))
-                text += MEDIA_TOKENS["image"] * config.num_video_frames
+                    media["video"].append(_extract_video(part, config))
+                text += MEDIA_TOKENS["video"]
             else:
                 raise ValueError(f"Unsupported prompt part type: {type(part)}")
         message["value"] = text
